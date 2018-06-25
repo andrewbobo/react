@@ -13,3 +13,13 @@ export const services = [
   "Internet marketing",
   "Social media management"
 ];
+
+export const portfolio = [
+  "Websites",
+  "Wordpress",
+  "Mobile app",
+  "Icons",
+  "Logos",
+  "Graphics",
+  "Social media management"
+];

@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   background: #81e4ed;
+  font-family: sans-serif;
 }
 
 ul,
@@ -14,12 +15,6 @@ li {
 }
 
 /*END RESET*/
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
 
 .container {
   height: 100vh;
@@ -35,6 +30,14 @@ header {
   background: #e8ebf1;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1440px;
+  margin: auto;
+}
+
 .always-class {
   position: absolute;
   left: 0;
@@ -42,8 +45,6 @@ header {
   width: 200px;
   background: white;
   min-height: 100%;
-  transition: all 1s;
-  transform: translateY(0px);
 }
 
 .nav_list {
@@ -96,7 +97,8 @@ li.open-class {
   background: white;
 }
 
-.linkOpen.isOpen {
+.linkOpen.isOpen,
+.linkOpen.isOpenService {
   background: transparent;
 }
 
