@@ -1,11 +1,18 @@
 import React from "react";
 import classNames from "classname";
-import ToggleMenuList from "../toggle/ToggleMenuList";
-const styleBlock = { display: "block" };
+import ToggleMenuList from "./toggle/ToggleMenuList";
 import { Collapse } from "reactstrap";
 import logo from "../img/logo.png";
+import Slider from "./Slider";
 
 export default class Article extends React.Component {
+  toggleOpen = () => {
+    this.setState({
+      isOpenService: !this.state.isOpenService,
+      collapseServices: !this.state.collapseServices
+    });
+  };
+
   toggle = () => {
     this.setState({
       collapse: !this.state.collapse,
@@ -13,60 +20,77 @@ export default class Article extends React.Component {
     });
   };
 
-  toggleOpen = () => {
+  closeMenuBlog = () => {
     this.setState({
-      isOpenService: !this.state.isOpenService,
-      collapseServices: !this.state.collapseServices
+      collapse: false,
+      isOpen: false,
+      collapseServices: false,
+      isOpenService: false
     });
   };
-  state = { isOpen: false, collapse: false };
+
+  state = () => {
+    this.setState({});
+  };
 
   render() {
-    const { articles, services } = this.props;
+    const { articles, services, portfolio } = this.props;
     const { isOpen } = this.state;
+    const { collapse } = this.state;
     const { isOpenService } = this.state;
+    const { collapseServices } = this.state;
 
     return (
-      <header>
-        <div className="header">
-          <div className="header_logo">
-            <a href="/">
-              <img src={logo} alt="logo" />
-            </a>
+      <div>
+        <header>
+          <div className="header">
+            <div className="header_logo">
+              <a href="/">
+                <img src={logo} alt="logo" />
+              </a>
+            </div>
+            <ul className="nav_list">
+              <li className="nav_list_item">
+                <a>{articles.home}</a>
+              </li>
+              <li className="nav_list_item">
+                <a>{articles.about}</a>
+              </li>
+              <li
+                className={classNames("linkOpen nav_list_item", {
+                  isOpenService: !isOpenService
+                })}
+              >
+                <a onClick={this.toggleOpen}>{articles.services}</a>
+                <ToggleMenuList closeMenu={this.closeMenuBlog}>
+                  <Collapse isOpen={this.state.collapseServices}>
+                    {portfolio.map(e => <a className="style_block">{e}</a>)}
+                  </Collapse>
+                </ToggleMenuList>
+              </li>
+              <li
+                className={classNames("linkOpen nav_list_item", {
+                  isOpen: !isOpen
+                })}
+              >
+                <a onClick={this.toggle}>{articles.blog}</a>
+                <ToggleMenuList closeMenu={this.closeMenuBlog}>
+                  <Collapse isOpen={this.state.collapse}>
+                    {services.map(e => <a className="style_block">{e}</a>)}
+                  </Collapse>
+                </ToggleMenuList>
+              </li>
+              <li className="nav_list_item">
+                <a>{articles.contact}</a>
+              </li>
+            </ul>
           </div>
-          <ul className="nav_list">
-            <li>
-              <a>{articles.home}</a>
-            </li>
-            <li>
-              <a>{articles.about}</a>
-            </li>
-            <li
-              className={classNames("linkOpen", {
-                isOpenService: !isOpenService
-              })}
-            >
-              <a onClick={this.toggleOpen}>Services</a>
-              <ToggleMenuList>
-                <Collapse isOpen={this.state.collapseServices}>
-                  {services.map(e => <a style={styleBlock}>{e}</a>)}
-                </Collapse>
-              </ToggleMenuList>
-            </li>
-            <li className={classNames("linkOpen", { isOpen: !isOpen })}>
-              <a onClick={this.toggle}>Blog</a>
-              <ToggleMenuList>
-                <Collapse isOpen={this.state.collapse}>
-                  {services.map(e => <a style={styleBlock}>{e}</a>)}
-                </Collapse>
-              </ToggleMenuList>
-            </li>
-            <li>
-              <a>{articles.contact}</a>
-            </li>
-          </ul>
-        </div>
-      </header>
+          <div className="container_slider" />
+        </header>
+        <main>
+          <Slider />
+        </main>
+      </div>
     );
   }
 }

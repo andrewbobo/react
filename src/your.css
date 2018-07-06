@@ -27,8 +27,9 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1440px;
-  margin: auto; }
+  max-width: 1000px;
+  margin: auto;
+  padding: 24px 0; }
 
 .always-class {
   position: absolute;
@@ -39,12 +40,21 @@ header {
   min-height: 100%; }
 
 .nav_list {
-  display: flex;
-  list-style-type: none; }
-
-.nav_list li {
-  position: relative;
-  padding: 25px; }
+  list-style-type: none;
+  display: flex; }
+  .nav_list_item {
+    position: relative;
+    width: 100px;
+    white-space: nowrap;
+    text-align: center;
+    border-top: 5px solid transparent;
+    color: #000;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 8px; }
+    .nav_list_item_link {
+      text-align: left; }
 
 li.open-class {
   background: white; }
@@ -57,8 +67,7 @@ li.open-class {
   color: black; }
 
 .sub_nav_list {
-  height: 0;
-  width: 300px; }
+  height: 0; }
 
 .sub_nav_list li:first-child {
   background: white;
@@ -66,22 +75,36 @@ li.open-class {
   position: absolute;
   width: 250px;
   left: 0;
-  padding: 0; }
-
-.linkOpen {
-  width: 100px; }
+  padding: 0;
+  z-index: 1; }
 
 .nav_list_item_link a {
   padding: 16px; }
 
-.linkOpen {
-  background: white; }
+.nav_list .linkOpen {
+  background: white;
+  border-top: 5px solid #2aacc8; }
 
-.linkOpen.isOpen,
-.linkOpen.isOpenService {
-  background: transparent; }
+.nav_list .linkOpen.isOpen,
+.nav_list .linkOpen.isOpenService {
+  background: transparent;
+  border-top: 5px solid transparent; }
 
 .colapsing {
   transition: height 2s ease; }
 
+.style_block {
+  display: block; }
+
 /*end MENU*/
+main .carousel .control-dots .dot {
+  width: 14px;
+  height: 14px; }
+
+main .carousel.carousel-slider {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 19px 0 48px 0; }
+
+.container_slider {
+  background: #6ec2ca; }

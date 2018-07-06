@@ -10,8 +10,10 @@
   "dependencies": {
     "classname": "0.0.0",
     "react": "^16.4.1",
+    "react-click-outside": "^3.0.1",
     "react-dom": "^16.4.1",
     "react-motion": "^0.5.2",
+    "react-responsive-carousel": "^3.1.41",
     "reactstrap": "^6.1.0"
   },
   "scripts": {
