@@ -6,14 +6,6 @@ export const articles = {
   contact: "Contact Us"
 };
 
-export const services = [
-  "Web Design",
-  "Wordpress Design",
-  "Mobile app development",
-  "Internet marketing",
-  "Social media management"
-];
-
 export const portfolio = [
   "Websites",
   "Wordpress",
@@ -21,5 +13,13 @@ export const portfolio = [
   "Icons",
   "Logos",
   "Graphics",
+  "Social media management"
+];
+
+export const services = [
+  "Web Design",
+  "Wordpress Design",
+  "Mobile app development",
+  "Internet marketing",
   "Social media management"
 ];
